@@ -1,0 +1,140 @@
+/* ---------- Basic reset ---------- */
+/* REQUIREMENT: element selector (the universal selector "*") */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* REQUIREMENT: element selector (body) + custom colors and typography */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* custom typography */
+  color: #222;                                /* custom text color */
+  background: #fafafa;                        /* custom background color */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* REQUIREMENT: Bootstrap override.
+   Bootstrap's default anchor color is blue (#0d6efd) with underline-on-hover
+   behavior. This overrides that default so plain in-text links match our
+   dark theme. (Bootstrap component links like .nav-link and .accordion-button
+   use their own higher-specificity selectors, so they are unaffected.) */
+a {
+  color: #222;
+}
+
+a:hover {
+  color: #555;
+}
+
+/* ---------- Header ---------- */
+/* REQUIREMENT: element selector (header) + margin and padding */
+header {
+  background: #222;
+  color: #fff;
+  padding: 1.5rem 1rem; /* padding */
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.75rem; /* custom typography */
+}
+
+header p {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 0.25rem; /* margin */
+}
+
+/* ---------- Main ---------- */
+/* Layout/spacing for page content is handled by Bootstrap's .container
+   and spacing utilities (see the HTML). This just keeps main growing to
+   fill the page so the footer/nav stay pinned to the bottom on short pages. */
+main {
+  flex: 1;
+}
+
+/* ---------- Cards (hobbies) ---------- */
+/* REQUIREMENT: class selector (.card) + border + border-radius + shadow.
+   This also overrides Bootstrap's default .card styling (its default
+   border-radius is 0.375rem with a plain 1px border and no shadow). */
+.card {
+  border: 1px solid #ddd;                    /* REQUIREMENT: border */
+  border-radius: 8px;                        /* REQUIREMENT: border radius */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);  /* REQUIREMENT: shadow */
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+}
+
+/* Bootstrap's .card-img-top is cover-cropped by default in our theme;
+   this modifier keeps portrait images (like a book cover) fully visible
+   instead of being cropped. */
+.card-img-top {
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-img-top.cover {
+  height: 220px;
+  object-fit: contain;
+  background: #f0f0f0;
+}
+
+/* ---------- Buttons ---------- */
+/* REQUIREMENT: class selector (.btn).
+   This overrides several of Bootstrap's default .btn styles (Bootstrap's
+   base .btn has no background color and a larger border-radius). */
+.btn {
+  background: #222;
+  color: #fff;
+  padding: 0.6rem 1.25rem;  /* padding */
+  border-radius: 4px;       /* REQUIREMENT: border radius */
+  border: none;
+  font-size: 0.95rem;
+}
+
+.btn:hover {
+  background: #444;
+  color: #fff;
+}
+
+/* ---------- Resume ---------- */
+.resume-entry {
+  margin-bottom: 1.25rem; /* margin */
+}
+
+.resume-entry dt {
+  font-weight: bold;
+}
+
+.resume-entry dd {
+  margin-left: 0;
+  color: #555;
+}
+
+.resume-entry dd ul {
+  margin-top: 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem; /* padding */
+  font-size: 0.85rem;
+}
+
+/* ---------- Bootstrap navbar tweaks ---------- */
+/* REQUIREMENT: Bootstrap override.
+   Bootstrap's default active nav-link style is just a slightly lighter
+   text color. This gives the active page a clearer, bolder indicator. */
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+}
